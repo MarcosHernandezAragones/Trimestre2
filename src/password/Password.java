@@ -9,7 +9,7 @@ public class Password {
 
 	
 	public Password() {
-		this.longitud = 8;
+		this.longitud = 11;
 		this.contrasena = "AAAaa111111"; // fuerte borrar final
 	}
 
@@ -48,29 +48,35 @@ public class Password {
 		int contMay=0;
 		int contNum=0;
 		
-		for (int i = 0; i < letraMin.length(); i++) {
-			if (contrasena.substring(i,i+1).equals(letraMin)) {
-				contMin +=1;
+		
+		for (int i = 0; i < longitud; i++) {
+			
+			for (int j = 0; j < letraMin.length(); j++) {
+				if (contrasena.substring(i,i+1).equals(letraMin.substring(j, j+1))) {
+					contMin++;
+				}
+				if (contrasena.substring(i,i+1).equals(letraMay.substring(j, j+1))) {
+					contMay++;
+				}
+			}
+			
+			for(int j = 0; j < numero.length(); j++) {
+				if (contrasena.substring(i,i+1).equals(numero.substring(j, j+1))) {
+					contNum++;
+				}
 			}
 		}
 		
-		for (int i = 0; i < letraMay.length(); i++) {
-			if (contrasena.substring(i, i+1).equals(letraMay)) {
-				contMay +=1;
-			}
-		}
 		
-		for (int i = 0; i < numero.length(); i++) {
-			if (contrasena.substring(i, i+1).equals(numero)) {
-				contNum +=1;
-			}
-		}
-		
-		if (contMay>3 && contMin>1 && contNum>5) {
+		if (contMay>2 && contMin>1 && contNum>5) {
 			return true;
+			
+		}else {
+			return false;
+			
 		}
 		
-		return false;
+		
 	}
 
 	
