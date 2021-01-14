@@ -53,7 +53,7 @@ public class Password {
 			
 			for (int j = 0; j < letraMin.length(); j++) {
 				if (contrasena.substring(i,i+1).equals(letraMin.substring(j, j+1))) {
-					contMin++;
+					
 				}
 				if (contrasena.substring(i,i+1).equals(letraMay.substring(j, j+1))) {
 					contMay++;
