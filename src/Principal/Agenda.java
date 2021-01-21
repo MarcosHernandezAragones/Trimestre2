@@ -127,7 +127,6 @@ public class Agenda {
 			System.out.println("dime su nombre o el telefono");
 			busqueda = leer.nextLine();
 
-
 			pos = buscarPosicion(busqueda);
 			vAgenda[pos] = null;
 			System.out.println("contacto borrado");
@@ -138,21 +137,20 @@ public class Agenda {
 		}
 
 	}
-	
+
 	public String buscarContacto() {
 		Scanner leer = new Scanner(System.in);
 
-		String busqueda,respuesta="";
+		String busqueda, respuesta = "";
 		int pos;
 		try {
 
 			System.out.println("dime su nombre o el telefono");
 			busqueda = leer.nextLine();
 
-
 			pos = buscarPosicion(busqueda);
 			for (int i = 0; i < vAgenda.length; i++) {
-				if (i==pos) {
+				if (i == pos) {
 					respuesta += vAgenda[pos].toString() + "\n";
 				}
 			}
@@ -165,22 +163,21 @@ public class Agenda {
 		return propietario + "\n" + respuesta;
 
 	}
-	
+
 	public void editarContacto() {
 		Scanner leer = new Scanner(System.in);
 
-		String nombre,telefono;
-		String busqueda,respuesta="";
+		String nombre, telefono;
+		String busqueda, respuesta = "";
 		int pos;
 		try {
 
 			System.out.println("dime su nombre o el telefono");
 			busqueda = leer.nextLine();
 
-
 			pos = buscarPosicion(busqueda);
 			for (int i = 0; i < vAgenda.length; i++) {
-				if (i==pos) {
+				if (i == pos) {
 					System.out.println("dime su nombre");
 					nombre = leer.nextLine();
 					System.out.println("dime su telefono");
@@ -188,10 +185,10 @@ public class Agenda {
 					Contacto c = new Contacto(nombre, telefono);
 					pos = buscarPosicion();
 					vAgenda[i] = c;
-					i=vAgenda.length;
+					i = vAgenda.length;
 				}
 			}
-			
+
 			System.out.println("contacto Añadido");
 		} catch (java.lang.ArrayIndexOutOfBoundsException e) {
 			System.out.println("El contacto no exsiste.");
