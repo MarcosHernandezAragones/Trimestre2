@@ -3,14 +3,24 @@ package Principal;
 import java.util.Scanner;
 
 public class Agenda {
+	/**
+	 * @author Marcos HernÃ¡ndez AragonÃ©s
+	 * @version 3.0
+	 */
 	private String propietario;
 	private Contacto[] vAgenda;
 
+	
 	public Agenda() {
 		propietario = "";
 		vAgenda = new Contacto[10];
 
 	}
+	
+	/**
+	 * AÃ±adir ejemplos a nuestra agenda
+	 * @param propietario AÃ±adir ejemplos a nuestra agenda
+	 */
 
 	public Agenda(String propietario) {
 		this.propietario = propietario;
@@ -20,10 +30,21 @@ public class Agenda {
 		vAgenda[2] = new Contacto("Silvia", "333333");
 	}
 
+	/**
+	 * Definir la longitud de nuestra agenda
+	 * @param propietario el dueÃ±o de la agenda
+	 * @param tam el tamaÃ±o de la agenda
+	 */
+	
 	public Agenda(String propietario, int tam) {
 		this.propietario = propietario;
 		vAgenda = new Contacto[tam];
 	}
+	
+	/**
+	 * metodo estatico que nos muestra solo el menu
+	 * @return devuelve la opcion elegida
+	 */
 
 	public static int verMenu() {
 		Scanner leer = new Scanner(System.in);
@@ -31,7 +52,7 @@ public class Agenda {
 		do {
 			System.out.println("Agenda telefonos 2.0 \n -------------- \n");
 			System.out.println("1- Ver todos los contactos");
-			System.out.println("2- Añadir contacto");
+			System.out.println("2- Aï¿½adir contacto");
 			System.out.println("3- Borrar contacto");
 			System.out.println("4- Buscar contacto");
 			System.out.println("5- Editar contacto");
@@ -44,16 +65,25 @@ public class Agenda {
 			}
 
 			if (opc < 1 || opc > 6) {
-				System.out.println("Opción no válida \n\n");
+				System.out.println("Opciï¿½n no vï¿½lida \n\n");
 			}
 		} while (opc < 1 || opc > 6);
 		return opc;
 	}
 
+	/**
+	 * devuelve el propietario
+	 * @return devuelve el propietario
+	 */
+	
 	public String getPropietario() {
 		return propietario;
 	}
 
+	/**
+	 * El toString para mostrar el propietario y los contactos
+	 */
+	
 	@Override
 	public String toString() {
 		String contactos = "";
@@ -67,7 +97,11 @@ public class Agenda {
 		return propietario + "\n" + contactos;
 	}
 
-	// buscar posicion libre
+	
+	/**
+	 * Buscar una posion libre para aÃ±adir un contacto
+	 * @return devuelve -1 si no lo encuentra
+	 */
 	private int buscarPosicion() {
 
 		int pos = -1;
@@ -79,7 +113,12 @@ public class Agenda {
 		return -1;
 	}
 
-	// buscar nombres o telefonos
+	/**
+	 * Busca nombre o telefeno que se van a utilizar mÃ¡s tarde
+	 * @param busqueda funcion externa para buscar
+	 * @return -1 si no lo encuentra
+	 */
+	
 	private int buscarPosicion(String busqueda) {
 
 		for (int i = 0; i < vAgenda.length; i++) {
@@ -90,6 +129,10 @@ public class Agenda {
 		return -1;
 	}
 
+	/**
+	 * AÃ±adir un contacto
+	 */
+	
 	public void anadirContacto() {
 
 		Scanner leer = new Scanner(System.in);
@@ -111,10 +154,14 @@ public class Agenda {
 		} catch (java.lang.ArrayIndexOutOfBoundsException e) {
 			System.out.println("Tu agenda esta llena.");
 		} catch (Exception e) {
-			System.out.println("Contacto no añadido.");
+			System.out.println("Contacto no aï¿½adido.");
 		}
 
 	}
+	
+	/**
+	 * borrar un contacto
+	 */
 
 	public void borrarContacto() {
 		Scanner leer = new Scanner(System.in);
@@ -137,7 +184,16 @@ public class Agenda {
 		}
 
 	}
+<<<<<<< HEAD
 
+=======
+	
+	/**
+	 * Se utiliza la funcion busqueda para buscar los contactos
+	 * @return devuelve el propietario y el contacto que hemos buscado
+	 */
+	
+>>>>>>> main
 	public String buscarContacto() {
 		Scanner leer = new Scanner(System.in);
 
@@ -163,7 +219,15 @@ public class Agenda {
 		return propietario + "\n" + respuesta;
 
 	}
+<<<<<<< HEAD
 
+=======
+	
+	/**
+	 * se utiliza la funcion busqueda para editar un contacto
+	 */
+	
+>>>>>>> main
 	public void editarContacto() {
 		Scanner leer = new Scanner(System.in);
 
@@ -188,8 +252,13 @@ public class Agenda {
 					i = vAgenda.length;
 				}
 			}
+<<<<<<< HEAD
 
 			System.out.println("contacto Añadido");
+=======
+			
+			System.out.println("contacto Aï¿½adido");
+>>>>>>> main
 		} catch (java.lang.ArrayIndexOutOfBoundsException e) {
 			System.out.println("El contacto no exsiste.");
 		} catch (Exception e) {
